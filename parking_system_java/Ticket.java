@@ -1,4 +1,4 @@
-package parking_system;
+package parking_system_java;
 
 import java.time.LocalDateTime;
 

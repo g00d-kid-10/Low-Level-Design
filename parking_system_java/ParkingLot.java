@@ -1,4 +1,4 @@
-package parking_system;
+package parking_system_java;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -55,10 +55,10 @@ class ParkingLot implements Entrance, Egress {
     }
 
     public List<Floor> getFloors() {
-        return floors;
+        return new ArrayList<>(floors);
     }
 
     public List<Ticket> getTickets() {
-        return tickets;
+        return new ArrayList<>(tickets);
     }
 }
