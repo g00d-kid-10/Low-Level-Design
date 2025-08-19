@@ -1,4 +1,4 @@
-package Strategy.Stratagies;
+package strategy.stratagies;
 
 public class AverageStyle implements DrivingStyle {
     public AverageStyle() {}

@@ -1,7 +1,7 @@
-package Strategy;
+package strategy;
 
-import Strategy.Stratagies.*;
-import Strategy.Vehicles.*;
+import strategy.stratagies.*;
+import strategy.vehicles.*;
 
 class Main {
     public static void main(String[] args) {

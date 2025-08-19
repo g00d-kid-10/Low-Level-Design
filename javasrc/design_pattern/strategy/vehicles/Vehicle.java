@@ -1,7 +1,7 @@
-package Strategy.Vehicles;
+package strategy.vehicles;
 
-import Strategy.Stratagies.DrivingStyle;
-import Strategy.Stratagies.AverageStyle;
+import strategy.stratagies.DrivingStyle;
+import strategy.stratagies.AverageStyle;
 
 public class Vehicle {
     private DrivingStyle style;
