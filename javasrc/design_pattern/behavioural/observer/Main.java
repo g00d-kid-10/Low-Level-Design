@@ -1,8 +1,5 @@
 package observer;
 
-import observer.Customer;
-import observer.Product;
-
 class Main {
     public static void main(String[] args) {
         Customer c1 = new Customer("Shubham");

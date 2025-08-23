@@ -1,7 +1,5 @@
 package observer;
 
-import observer.Subject;
-import observer.Observer;
 import java.util.List;
 import java.util.ArrayList;
 

@@ -1,7 +1,4 @@
 package observer;
-
-import observer.Observer;
-
 class Customer implements Observer {
     private String name;
 
