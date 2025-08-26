@@ -1,4 +1,4 @@
-package parking_system_java;
+package parking_system;
 
 class Vehicle {
     private String licsense;

@@ -1,4 +1,4 @@
-package parking_system_java;
+package parking_system;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -37,21 +37,15 @@ class ParkingLot implements Entrance, Egress {
     }
 
     public Spot getFirstVacantSpot() {
-        Spot vacantSpot = null;
         for(Floor floor : floors) {
             for(Spot spot : floor.getSpots()) {
                 if(spot.isFree()) {
-                    vacantSpot = spot;
-                    return vacantSpot;
+                    return spot;
                 }
             }
         }
 
-        if(vacantSpot == null) {
-            throw new IllegalStateException("No spot available");
-        }
-
-        return vacantSpot;
+        throw new IllegalStateException("No spot available");
     }
 
     public List<Floor> getFloors() {

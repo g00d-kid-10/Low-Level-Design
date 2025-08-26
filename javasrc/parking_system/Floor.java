@@ -1,4 +1,4 @@
-package parking_system_java;
+package parking_system;
 
 import java.util.List;
 import java.util.ArrayList;

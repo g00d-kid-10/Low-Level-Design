@@ -1,8 +1,4 @@
-package parking_system_java;
-
-import parking_system_java.ParkingLot;
-import parking_system_java.Vehicle;
-import parking_system_java.Ticket;
+package parking_system;
 
 class Main {
     public static void main(String[] args) {
