@@ -17,6 +17,6 @@ class Player {
     }
 
     public void playMove(int r, int c, Board board) {        
-        board.setMove(r, c, type);
+        board.setCell(r, c, type);
     }
 }   

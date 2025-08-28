@@ -6,9 +6,11 @@ import java.util.List;
 class Board {
     private final int size;
     private final Piece[][] grid;
+    private boolean win;
 
     Board(int size) {
         this.size = size;
+        this.win = false;
         grid = new Piece[this.size][this.size];
     }
     
@@ -22,12 +24,32 @@ class Board {
         return gridCopy;
     }
 
-    public void setMove(int r, int c, Piece type) {
+    public int getSize() {
+        return size;
+    }
+
+    public Piece getCell(int r, int c) {
+        return getCell(r, c);
+    }
+
+    public void setCell(int r, int c, Piece type) {
         if(r < 0 || r >= size || c < 0 || c >= size || grid[r][c] != null) {
             throw new IllegalStateException("invalid move");
         }
 
+        if(winMove(r, c, type)) {
+            win = true;
+        }
+
         grid[r][c] = type;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
+    public boolean isGameOver() {
+        return blankSpot().isEmpty() || win;
     }
 
     public List<int[]> blankSpot() {
