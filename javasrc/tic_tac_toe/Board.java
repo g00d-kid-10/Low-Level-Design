@@ -6,9 +6,11 @@ import java.util.List;
 class Board {
     private final int size;
     private final Piece[][] grid;
+    private boolean win;
 
     Board(int size) {
         this.size = size;
+        this.win = false;
         grid = new Piece[this.size][this.size];
     }
     
@@ -22,12 +24,32 @@ class Board {
         return gridCopy;
     }
 
-    public void setMove(int r, int c, Piece type) {
+    public int getSize() {
+        return size;
+    }
+
+    public Piece getCell(int r, int c) {
+        return grid[r][c];
+    }
+
+    public void setCell(int r, int c, Piece type) {
         if(r < 0 || r >= size || c < 0 || c >= size || grid[r][c] != null) {
             throw new IllegalStateException("invalid move");
         }
 
         grid[r][c] = type;
+        
+        if(winMove(r, c, type)) {
+            win = true;
+        }
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
+    public boolean isGameOver() {
+        return blankSpot().isEmpty() || win;
     }
 
     public List<int[]> blankSpot() {
@@ -79,30 +101,4 @@ class Board {
 
         return row || col || dia || adia;
     }
-
-    public void printBoard() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (grid[i][j] == null) {
-                    System.out.print(".");
-                } else {
-                    System.out.print(grid[i][j]);
-                }
-                if (j < size - 1) {
-                    System.out.print(" | ");
-                }
-            }
-            System.out.println();
-            if (i < size - 1) {
-                for (int k = 0; k < size; k++) {
-                    System.out.print("---");
-                    if (k < size - 1) {
-                        System.out.print("+");
-                    }
-                }
-                System.out.println();
-            }
-        }
-    }
-
 }
