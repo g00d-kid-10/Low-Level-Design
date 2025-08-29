@@ -6,12 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TicTacToeGUI extends JFrame {
-    private final TicTacToe game;
     private final JButton[][] buttons;
     private final JLabel statusLabel;
 
     public TicTacToeGUI(TicTacToe game) {
-        this.game = game;
         this.buttons = new JButton[game.getBoard().getSize()][game.getBoard().getSize()];
         this.statusLabel = new JLabel("Turn: " + game.getCurrentPlayer().getName());
 

@@ -2,18 +2,14 @@ package tic_tac_toe;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Scanner;
-import java.util.InputMismatchException;
 
 class TicTacToe {
     private Deque<Player> players;
     private Board board;
-    private boolean isGameOver;
 
     TicTacToe(Player p1, Player p2, int boardSize) {
         this.players = new ArrayDeque<>(); this.players.add(p1); this.players.add(p2);
         this.board = new Board(boardSize);
-        this.isGameOver = false;
     }
 
     public Board getBoard() {
@@ -33,9 +29,12 @@ class TicTacToe {
     }
 
     public void makeMove(int r, int c) {
-        Player currPlayer = players.poll();
+        Player currPlayer = players.getFirst();
         currPlayer.playMove(r, c, board);
-        players.addLast(currPlayer);
+        if(board.isGameOver()) {
+            return;
+        }
+        players.addLast(players.poll());
     }
 
     public boolean isGameOver() {

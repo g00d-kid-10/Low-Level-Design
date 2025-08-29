@@ -29,7 +29,7 @@ class Board {
     }
 
     public Piece getCell(int r, int c) {
-        return getCell(r, c);
+        return grid[r][c];
     }
 
     public void setCell(int r, int c, Piece type) {
@@ -37,11 +37,11 @@ class Board {
             throw new IllegalStateException("invalid move");
         }
 
+        grid[r][c] = type;
+        
         if(winMove(r, c, type)) {
             win = true;
         }
-
-        grid[r][c] = type;
     }
 
     public boolean isWin() {
@@ -101,30 +101,4 @@ class Board {
 
         return row || col || dia || adia;
     }
-
-    public void printBoard() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (grid[i][j] == null) {
-                    System.out.print(".");
-                } else {
-                    System.out.print(grid[i][j]);
-                }
-                if (j < size - 1) {
-                    System.out.print(" | ");
-                }
-            }
-            System.out.println();
-            if (i < size - 1) {
-                for (int k = 0; k < size; k++) {
-                    System.out.print("---");
-                    if (k < size - 1) {
-                        System.out.print("+");
-                    }
-                }
-                System.out.println();
-            }
-        }
-    }
-
 }
