@@ -1,10 +1,10 @@
 package tic_tac_toe;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Queue;
 
 class TicTacToe {
-    private Deque<Player> players;
+    private Queue<Player> players;
     private Board board;
 
     TicTacToe(Player p1, Player p2, int boardSize) {
@@ -25,16 +25,16 @@ class TicTacToe {
     }
 
     public Player getCurrentPlayer() {
-        return players.getFirst();
+        return players.peek();
     }
 
     public void makeMove(int r, int c) {
-        Player currPlayer = players.getFirst();
+        Player currPlayer = players.peek();
         currPlayer.playMove(r, c, board);
         if(board.isGameOver()) {
             return;
         }
-        players.addLast(players.poll());
+        players.add(players.poll());
     }
 
     public boolean isGameOver() {
@@ -43,7 +43,7 @@ class TicTacToe {
 
     public Player getWinner() {
         if(board.isWin()) {
-            return players.getFirst();
+            return players.peek();
         }
 
         return null;
